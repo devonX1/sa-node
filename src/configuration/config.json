@@ -1,9 +1,0 @@
-{
-    "cityUrl": {
-        "Bgd": "https://www.elektrodistribucija.rs/planirana-iskljucenja/planirana-bgd",
-        "Ns": "https://www.elektrodistribucija.rs/planirana-iskljucenja/planirana-ns"
-    },
-    "forUrl": "https://www.elektrodistribucija.rs",
-    "restApi": "http://localhost:8080/api/notifications",
-    "authHeader": "e27ffb11-bdf2-4c0c-b0b9-2c17cab026e4"
-}
