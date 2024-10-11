@@ -25,4 +25,4 @@ coverage/
 # Optional npm cache directory
 .npm/
 
-config.json
+configuration/config.json
