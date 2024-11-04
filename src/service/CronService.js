@@ -20,21 +20,15 @@ class CronService {
     }
 
     async runApp() {
-        //Инициализирую класс выше всего, чтобы передавать его поссылке, тем самым не перезаписываю карту с етагами
+        //Инициализирую класс выше всего, чтобы передавать его поссылке, тем самым не перезаписываю карту
         console.log("CronService.runApp(): starting")
         const notificationParserService = new NotificationParserService();
         let combindedDaysUrlArray;
-        //'0 12 * * *'
-        //'* * * * *'
-        await cron.schedule('0 0 */2 * *',  async () => {
-             console.log("CronService.runApp.cron.schedule(): starting");
-             combindedDaysUrlArray = await this.getDaysUrls();
-             await this.getAndSendFreshNotification(combindedDaysUrlArray, notificationParserService);
+        await cron.schedule('0 */5 * * *', async () => {
+            console.log("CronService.runApp.cron.schedule(): cron process starting");
+            combindedDaysUrlArray = await this.getDaysUrls();
+            await this.getAndSendFreshNotification(combindedDaysUrlArray, notificationParserService);
          })
-        // console.log("CronService.runApp.cron.schedule(): starting");
-        // combindedDaysUrlArray = await this.getDaysUrls();
-        // await this.getAndSendFreshNotification(combindedDaysUrlArray, notificationParserService);
-        //данный парсинг урлов-дней нужно убрать внутрь крона 
     }
     //Получаем урлы-дни по Б и НС
     async getDaysUrls()  {

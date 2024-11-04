@@ -1,9 +1,7 @@
 const cron = require('node-cron');
 
 const NotificationParserService = require('./service/NotificationParserService');
-const TestCron = require("./TestCron");
 const JsonPrepareService = require("./service/JsonPrepareService");
-const HttpService = require('./service/HttpService');
 
 class Test {
     //test urls

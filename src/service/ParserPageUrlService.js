@@ -21,6 +21,7 @@ class ParserPageUrlService {
     set url(url) {
         this.url = url;
     }
+    
     get url() {
         return this.url;
     }

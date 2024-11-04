@@ -26,3 +26,5 @@ coverage/
 .npm/
 
 src/configuration/config.json
+src/configuration/config-docker.json
+src/configuration/config-heroku.json

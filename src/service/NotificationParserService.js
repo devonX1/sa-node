@@ -32,7 +32,7 @@ class NotificationParserService {
 
     async parseNotificationPage(url) {
         console.log("Test.testCash() -> NotificationParserService.parseNotificationPage() зашли");
-        //Сначала добавляем етаг по конкретному урлу в карту
+        //Сначала добавляем LastModified по конкретному урлу в карту
         const lastModified = await this.getFreshLastModified(url);
         this.daysUrlLMMap.set(url, lastModified);
         console.log("Test.testCash() -> NotificationParserService.parseNotificationPage() Проверяем что LastModified записали в this.daysUrlLMMap" + this.daysUrlLMMap.get(url));
@@ -44,7 +44,7 @@ class NotificationParserService {
             const tables = hparse('table');
             const extractedText = hparse('table tbody tr:first-child td b').text();
             //console.log("DEBUG DATE: " + extractedText);
-            //Берем дату и городс шапки страницы
+            //Берем дату и город c шапки страницы
             const notifDate = await this.extractNotifDate(extractedText);
             const commonCity = await this.extractCityName(extractedText);
             //console.log("DEBUG CITY:" + commonCity);
@@ -61,7 +61,7 @@ class NotificationParserService {
             const rowsToProcess = rows.slice(1);
             //Получаем количество стоблцов в таблице с нотификациями
             const columnCount = hparse(rows[0]).find('td').length;
-            //Идем по каждой строке таблицы с нотификациями, в конечном возвращая карту с нотификациями
+            //Идем по каждой строке таблицы с нотификациями, возвращая карту с нотификациями
             this.parseTableRows(rowsToProcess, hparse, columnCount, commonCity, notificationMap, notifDate);
             console.log("NotificationParserService.parseNotificationPage(): ");
             console.log(notificationMap);
@@ -70,6 +70,7 @@ class NotificationParserService {
             console.error(`Ошибка при парсинге страницы: ${Error.message}`);
         }
     }
+    
     parseTableRows(rowsToProcess, hparse, columnCount, commonCity, notificationMap, notifDate) {
         rowsToProcess.each((index, row) => {
             //console.log(`Row ${index + 1}`);
@@ -144,6 +145,7 @@ class NotificationParserService {
                 console.log("data not found")
             }
     }
+    
     extractCityName(text) {
             // Регулярное выражение для поиска города, который может состоять из нескольких слов, заканчивающихся на тире
             const cityPattern = /^[А-Яа-я]+(?:\s+[А-Яа-я]+)*\s*-/;

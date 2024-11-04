@@ -2,9 +2,6 @@
   "name": "sa-node",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -13,6 +10,10 @@
     "axios": "^1.7.2",
     "cheerio": "^1.0.0-rc.12",
     "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5",
     "node-cron": "^3.0.3"
+  },
+  "scripts": {
+    "start": "cd src && node Main.js"
   }
 }

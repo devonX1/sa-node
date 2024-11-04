@@ -6,9 +6,7 @@ class JsonPrepareService {
 
     async createJsonsFromMaps(notificationMap) {
         let jsonString;
-            //let jsonString;
             notificationMap.forEach((notificationArray, b) => {
-                //Проверяем дату
                 const dateString = this.normalizeDate(b);
                 console.log("Проверяем, что метод вернул строку с датой: " + dateString);
                 //console.log("Идем внутри карты")

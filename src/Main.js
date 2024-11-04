@@ -18,14 +18,13 @@ const run = async () => {
       const config = new ConfigLoader();
       const cronService = new CronService(config);
       await cronService.runApp();
-   //testing();
 }
 
 run();
 
 async function testing()  {
-    const test = new Test();
-   await test.testCash();
+    const config = new ConfigLoader();
+    console.log(config.getEndpointUrl());
 }
 
 //console.log("Программа завершилась");
